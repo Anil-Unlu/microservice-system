@@ -8,6 +8,7 @@ import lombok.Data;
 public class OrderResponse {
 
     private Long id;
+    private Long productId;
     private String productName;
     private int quantity;
     private UserResponse user;

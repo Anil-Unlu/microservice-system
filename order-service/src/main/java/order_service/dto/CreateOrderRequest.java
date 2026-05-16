@@ -6,6 +6,6 @@ import lombok.*;
 public class CreateOrderRequest {
 
     private Long userId;
-    private String productName;
+    private Long productId;
     private int quantity;
 }
