@@ -12,7 +12,7 @@ import com.example.user_service.dto.UserResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserController {
 

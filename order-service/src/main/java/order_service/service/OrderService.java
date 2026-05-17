@@ -13,6 +13,8 @@ import order_service.mapper.OrderMapper;
 import order_service.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class OrderService {
@@ -49,6 +51,17 @@ public class OrderService {
 
         return orderMapper.toResponse(order,user, product);
 
+    }
+
+    public List<OrderResponse> getAllOrders() {
+        return orderRepository.findAll()
+                .stream()
+                .map(order -> {
+                    UserResponse user = userClient.getResponse(order.getUserId());
+                    ProductResponse product = productClient.getProductById(order.getProductId());
+                    return orderMapper.toResponse(order, user, product);
+                })
+                .toList();
     }
 
 }
